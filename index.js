@@ -47,7 +47,7 @@ javascript: (function () {
     const spaceId = await getSpaceId();
     blockIds = await getBlockIds(spaceId);
     for (const blockId of blockIds) {
-      await fetch("https://www.notion.so/api/v3/deleteBlocks", {
+      await fetch("https://www.notion.so/api/v3/restoreBlock", {
         "headers": {
           "accept": "*/*",
           "accept-language": "en-US,en;q=0.9",
@@ -56,7 +56,7 @@ javascript: (function () {
         },
         "referrer": "https://www.notion.so/qwerk/Lorem-Ipsum-d883cc4e6ea64bd4bcdb85c43cf74946",
         "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": `{\"blocks\":[{\"id\":\"${blockId}\",\"spaceId\":\"${spaceId}\"}],\"permanentlyDelete\":true}`,
+        "body": `{\"blocks\":[{\"id\":\"${blockId}\",\"spaceId\":\"${spaceId}\"}]}`,
         "method": "POST",
         "mode": "cors",
         "credentials": "include"
